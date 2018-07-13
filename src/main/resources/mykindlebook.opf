@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<package version="2.0" xmlns="http://www.idpf.org/2007/opf" unique-identifier="BookId">
+ 
+  <metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:opf="http://www.idpf.org/2007/opf">
+    <dc:title>$novel.Title</dc:title>
+    <dc:language>zh</dc:language>
+    <dc:identifier id="BookId" opf:scheme="ISBN"></dc:identifier>
+    <dc:creator opf:file-as="MagicWorldZ" opf:role="aut">MagicWorldZ</dc:creator>
+    <dc:publisher>MagicWorldZ</dc:publisher>
+    <dc:subject>Reference</dc:subject>
+    <dc:date>${date}</dc:date>
+    <dc:description></dc:description>
+  </metadata>
+ 
+  <manifest>
+    <item id="tc" href="toc.html" media-type="application/xhtml+xml"/>
+    <item id="book" href="mykindlebook.html" media-type="application/xhtml+xml"/>
+    <item id="stylesheet" href="style.css" media-type="text/css"/>
+    <item id="ncx" href="toc.ncx" media-type="application/x-dtbncx+xml"/>  
+  </manifest>
+ 
+  <!-- Each itemref references the id of a document designated in the manifest. The order of the itemref elements organizes the associated content files into the linear reading order of the publication.  -->
+  <spine toc="ncx">
+    <itemref idref="tc" />
+    <itemref idref="book" />
+  </spine>
+ 
+  <!-- The Kindle reading system supports two special guide items which are both mandatory.
+  type="toc" [mandatory]: a link to the HTML table of contents
+  type="text" [mandatory]: a link to where the content of the book starts (typically after the front matter) -->
+  <guide>
+    <reference type="toc" title="目录" href="toc.html"/>
+    <reference type="text" title="正文" href="toc.html"></reference>
+  </guide>
+ 
+</package>

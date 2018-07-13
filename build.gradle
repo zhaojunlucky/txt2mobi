@@ -1,0 +1,33 @@
+plugins {
+    id 'java'
+}
+
+compileJava.options.encoding = 'UTF-8'
+
+group 'com.magicworldz'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.10
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    // https://mvnrepository.com/artifact/org.apache.velocity/velocity-engine-core
+    compile group: 'org.apache.velocity', name: 'velocity-engine-core', version: '2.0'
+
+}
+
+
+task fatJar (type: Jar){
+    baseName = "txt2mobi"
+
+    manifest {
+        attributes 'Implementation-Title': 'MagicWorldZ',
+                'Main-Class': 'com.magicworldz.txt2mobi.App'
+    }
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
