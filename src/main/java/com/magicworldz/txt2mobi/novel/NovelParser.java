@@ -30,6 +30,10 @@ public class NovelParser {
         try {
             novel.setTitle(FileUtils.getFileName(path));
             String charset = EncodingDetect.getJavaEncode(path.toString());
+            if (charset.equalsIgnoreCase("GB2312")) {
+                charset = "GB18030";
+                System.out.println("Promote charset encoding from GB2312 to GB18030");
+            }
             System.out.println(charset);
             novel.setLanguage(charset);
             var reader = new BufferedReader(new InputStreamReader(new FileInputStream(path.toString()), charset) );

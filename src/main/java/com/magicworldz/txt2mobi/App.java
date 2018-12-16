@@ -47,7 +47,7 @@ public class App {
         if (System.getProperty("os.name").toLowerCase().startsWith("windows")) {
             kindlegenPath = "kindlegen/kindlegen.exe";
         } else {
-            kindlegenPath = "kindlegen/kindlegen.exe";
+            kindlegenPath = "kindlegen/kindlegen";
         }
 
         Path kindle = Paths.get(appPath, kindlegenPath);
