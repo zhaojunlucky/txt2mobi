@@ -42,10 +42,13 @@ public class FileUtils {
         String appPath = c.getProtectionDomain().getCodeSource().getLocation().getPath();
         try {
             appPath = URLDecoder.decode(appPath, "UTF-8");
+            if (System.getProperty("os.name").toLowerCase().startsWith("windows")) {
+                appPath = appPath.substring(1);
+            }
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
-        Path p = Paths.get(appPath.substring(1)).getParent();
+        Path p = Paths.get(appPath).getParent();
         return p.toString();
     }
 }

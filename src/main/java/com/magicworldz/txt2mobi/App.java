@@ -19,6 +19,7 @@ public class App {
             System.exit(1);
         }
         String appPath = FileUtils.getJarPath(App.class);
+        System.out.println(String.format("app path: %s", appPath));
         Path configFile = Paths.get(appPath, "chapters-setting.txt");
 
         Set<String> patterns = new HashSet<>();
