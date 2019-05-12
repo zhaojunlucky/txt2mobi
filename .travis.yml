@@ -4,3 +4,11 @@ script:
   - java -version
   - ./gradlew -version
   - ./gradlew fatJar
+deploy:
+  provider: releases
+  api_key:
+    secure: $api_key
+  file: txt2mobi/build/libs/release/txt2mobi.jar
+  skip_cleanup: true
+  on:
+    tags: true
