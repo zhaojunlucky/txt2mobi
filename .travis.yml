@@ -1,6 +1,6 @@
 jdk: oraclejdk11 #openjdk11
 language: java
 script:
-  - java -version 
-  - #export JAVA_HOME=$HOME/oraclejdk11
-  - gradle fatJar
+  - java -version
+  - gradlew -version
+  - gradlew fatJar
