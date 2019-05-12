@@ -1,7 +1,6 @@
 jdk: oraclejdk11 #openjdk11
 language: java
 script:
-  - jdk_switcher use oraclejdk11
   - java -version 
   - #export JAVA_HOME=$HOME/oraclejdk11
   - gradle fatJar
