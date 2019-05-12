@@ -1,2 +1,3 @@
+jdk: openjdk11
 language: java
 script: gradle fatJar
