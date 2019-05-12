@@ -6,8 +6,7 @@ script:
   - ./gradlew fatJar
 deploy:
   provider: releases
-  api_key:
-    secure: "qr85psvEtt6+FRTHE88NjBsOkRMLVnrv3nsvUe/FTcGkohR+sHI9FPHBiggUD9S/B4YACElF40dMcX3qx8T3hzGKIPHK0yz5QfCD9hQihj5cZEYY/h+LjiyoI2BjnzKqSprivDmDgqHGWb39M2P+ouopjzJlyCbfRgiMu0bPTUK7I2zHvE8KgUA5us1rTV4JlboZ89PSYWS72SmJHzL4vWIjE7VR2oIPsyf7i6lV7/zUObbrPvU1XLsyaiATAZMsbvBq1KDgDVIG1mmVfgk9jl9IBZwrKFBj36rsxDX61w2nQylJe1frTGZCCnHGoh4FBUKeNGur+2YeP8KW8eBQSPWAjZsByT11r3ZzvQok+VxM93B7U+OqheSypZZVfKFwvRXLQ3HDBgmgBCRvndLT4m+bzErsbhwNULHfTJPYei4LAFFkSp5l0anvtxc3Np7Nx6nObtLBIucpSJ4lihBn+nJz213Q3RAcXow3PC/GsOUwy+L+ktlWPXt4O8UuUGHt26cvvhPZvmzpG3FxjsLpb5gnjm0wq9F3SMisYmgFhtMB7KA0QYaXxqjgVbVISQr2qy98dpDwpEfiM7c8rgJXIUWqw1JQU3GqlbrJLhqAPt7TZYmXGQGXjraiZ8EksLBbfcO3K5gmnAH9QqY4WLOn+EgAMcwSv6RBZ/eeA+8EqYM="
+  github_token: $api_key
   file: txt2mobi/build/libs/release/txt2mobi.jar
   skip_cleanup: true
   on:
