@@ -2,5 +2,5 @@ jdk: oraclejdk11 #openjdk11
 language: java
 script:
   - java -version
-  - gradlew -version
-  - gradlew fatJar
+  - ./gradlew -version
+  - ./gradlew fatJar
