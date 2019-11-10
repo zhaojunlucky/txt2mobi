@@ -23,7 +23,7 @@ public class App {
         Path configFile = Paths.get(appPath, "chapters-setting.txt");
 
         Set<String> patterns = new HashSet<>();
-        patterns.add("第\\d+章.*");
+        patterns.add("^第\\d+章.*");
 
         loadPatterns(configFile, patterns);
         System.out.println(String.format("load %d chapter patterns", patterns.size()));

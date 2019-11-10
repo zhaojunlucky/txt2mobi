@@ -1,0 +1,14 @@
+jdk: oraclejdk11 #openjdk11
+language: java
+script:
+  - java -version
+  - ./gradlew -version
+  - ./gradlew fatJar
+deploy:
+  provider: releases
+  api_key: $api_key
+  file_glob: true
+  file: build/libs/*
+  skip_cleanup: true
+  on:
+    tags: false
