@@ -32,9 +32,19 @@ public class App {
         var outPath = Paths.get(path.getParent().toString(), FileUtils.getFileName(path));
         var novel = NovelParser.newParser(patterns.stream().collect(Collectors.toList())).parse(path);
         System.out.println(String.format("Total found %d chapters", novel.getChapters().size()));
-        for(int i = 0; i < Math.min(8, novel.getChapters().size()); i++) {
+        var start = Math.min(8, novel.getChapters().size());
+        for(int i = 0; i < start; i++) {
             System.out.println(String.format("    %s", novel.getChapters().get(i).getTitle()));
         }
+
+        int end = Math.max(novel.getChapters().size() - 6, start);
+        if (end > start) {
+            System.out.println("    ...");
+            for (int i = end; i < novel.getChapters().size(); ++i) {
+                System.out.println(String.format("    %s", novel.getChapters().get(i).getTitle()));
+            }
+        }
+
         System.out.println("Press enter to continue, Ctrl+C to exit...");
         System.in.read();
         var kw = KindleWritter.newWritter();
