@@ -4,11 +4,19 @@ script:
   - java -version
   - ./gradlew -version
   - ./gradlew fatJar
+before_deploy:
+  - export VER=$(head -1 version.txt)
+  # Set up git user name and tag this commit
+  - git config --local user.name "zhaojunlucky"
+  - git config --local user.email "zhaojunlucky@github.com"
+  - export TRAVIS_TAG="${VER}-$(git log --format=%h -1)"
+  - git tag $TRAVIS_TAG
 deploy:
   provider: releases
   api_key: $api_key
   file_glob: true
   file: build/libs/*
   skip_cleanup: true
+  overwrite: true
   on:
     tags: false
